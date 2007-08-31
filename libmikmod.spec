@@ -5,7 +5,7 @@
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.1.11a
-Release:	%mkrel 7
+Release:	%mkrel 8
 License:	LGPL
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
@@ -42,10 +42,7 @@ your own programs is encouraged !
 %package -n	%{libname}
 Summary:	Sound library supporting multiple module formats and digital sound files
 Group:		Sound
-%if "%{_lib}" != "lib"
 Provides:	%{name} = %{version}-%{release}
-Obsoletes:	%{name}
-%endif
 
 %description -n %{libname}
 Libmikmod is a portable sound library, capable of playing samples as
@@ -65,11 +62,7 @@ your own programs is encouraged !
 Summary:	Development related files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}
-%if "%{_lib}" != "lib"
 Provides:	%{name}-devel = %{version}-%{release}
-Obsoletes:	%{name}-devel
-%endif
-Provides:	%{mklibname mikmod 2 -d} = %{version}
 Obsoletes:	%{mklibname mikmod 2 -d}
 
 %description -n	%{develname}
