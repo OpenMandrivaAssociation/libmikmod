@@ -23,7 +23,6 @@ BuildRequires:	alsa-lib-devel
 BuildRequires:	automake1.8
 BuildRequires:	esound-devel
 BuildRequires:	texinfo
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Libmikmod is a portable sound library, capable of playing samples as
