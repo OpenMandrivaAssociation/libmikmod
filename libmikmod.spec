@@ -1,21 +1,21 @@
-%define	major 2
+%define	major 3
 %define	libname %mklibname mikmod %{major}
 %define develname %mklibname mikmod -d
+%define prerel beta2
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
-Version:	3.1.11a
-Release:	%mkrel 11
-License:	LGPL
+Version:	3.2.0
+Release:	%mkrel 0.%prerel.1
+License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
-Source0:	http://mikmod.raphnet.net/files/%{name}-3.1.11.tar.bz2
+Source0:	http://mikmod.raphnet.net/files/%{name}-%version-%prerel.tar.gz
 Patch0:		libmikmod-3.1.10-dspbusy-nonblock.patch
 Patch1:		libmikmod-3.1.10-lib64.patch
-Patch2:		libmikmod-3.1.11-a-64bit-fixes.patch
+Patch2:		libmikmod-64bit.patch
 Patch3:		libmikmod-3.1.11-rawwriter-path.patch
-Patch5:		libmikmod-3.1.11-new-alsa-fix.patch
-Patch6:		libmikmod-3.1.11-a.patch
+Patch5:		libmikmod-3.2.0-beta2-new-alsa-fix.patch
 Patch7:		libmikmod-sprintf.patch
 #gw dlopen libesd.so.0 instead of libesd.so
 Patch8:         libmikmod-3.1.11-esd-driver.patch
@@ -84,8 +84,7 @@ will use the limikmod library.
 
 %prep
 
-%setup -q -n %{name}-3.1.11
-%patch6 -p1 -b .3_1_11a
+%setup -q -n %{name}-%version-%prerel
 %patch0 -p0 -b .dsp_nonblock
 %patch1 -p1 -b .lib64
 %patch2 -p1 -b .64bit-fixes
@@ -117,13 +116,9 @@ rm -rf %{buildroot}
 %endif
 
 %post -n %{develname}
-#{__install_info} %{_infodir}/mikmod.info.bz2 %{_infodir}/dir --entry="* MikMod: (mikmod).            MikMod Sound Library."
 %_install_info mikmod.info
 
 %preun -n %{develname}
-#if [ "$1" = 0 ]; then
-#{__install_info} --delete %{_infodir}/mikmod.info.bz2 %{_infodir}/dir --entry="* MikMod: (mikmod).            MikMod Sound Library."
-#fi
 %_remove_install_info mikmod.info
 
 %clean
@@ -132,7 +127,7 @@ rm -rf %{buildroot}
 %files -n %{libname}
 %defattr(-,root,root)
 %doc AUTHORS COPYING.LESSER COPYING.LIB
-%{_libdir}/*.so.*
+%{_libdir}/libmikmod.so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root)
