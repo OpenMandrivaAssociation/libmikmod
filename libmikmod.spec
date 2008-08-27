@@ -6,7 +6,7 @@
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.2.0
-Release:	%mkrel 0.%prerel.1
+Release:	%mkrel 0.%prerel.2
 License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
@@ -19,6 +19,8 @@ Patch5:		libmikmod-3.2.0-beta2-new-alsa-fix.patch
 Patch7:		libmikmod-sprintf.patch
 #gw dlopen libesd.so.0 instead of libesd.so
 Patch8:         libmikmod-3.1.11-esd-driver.patch
+# (fc) 3.2.0-0.beta2.2mdv fix aclocal warning
+Patch9:		libmikmod-underquoted.patch
 BuildRequires:	alsa-lib-devel
 BuildRequires:	automake1.8
 BuildRequires:	esound-devel
@@ -92,9 +94,10 @@ will use the limikmod library.
 %patch5 -p1 -b .alsa
 %patch7 -p1 -b .sprintf
 %patch8 -p1 -b .esd
+%patch9 -p1 -b .underquoted
 
-rm -f configure
-libtoolize --copy --force; aclocal; autoconf; automake -a -c
+libtoolize --copy --force
+autoreconf
 
 %build
 %configure2_5x
