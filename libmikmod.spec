@@ -21,6 +21,8 @@ Patch7:		libmikmod-sprintf.patch
 Patch8:         libmikmod-3.1.11-esd-driver.patch
 # (fc) 3.2.0-0.beta2.2mdv fix aclocal warning
 Patch9:		libmikmod-underquoted.patch
+Patch10:	libmikmod-CVE-2007-6720.patch
+Patch11:	libmikmod-CVE-2009-0179.patch
 BuildRequires:	alsa-lib-devel
 BuildRequires:	automake1.8
 BuildRequires:	esound-devel
@@ -95,6 +97,8 @@ will use the limikmod library.
 %patch7 -p1 -b .sprintf
 %patch8 -p1 -b .esd
 %patch9 -p1 -b .underquoted
+%patch10 -p1 -b .CVE-2007-6720
+%patch11 -p1 -b .CVE-2009-0179
 
 libtoolize --copy --force
 autoreconf
