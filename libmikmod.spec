@@ -6,7 +6,7 @@
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.2.0
-Release:	%mkrel 0.%prerel.4
+Release:	%mkrel 0.%prerel.5
 License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
@@ -23,6 +23,7 @@ Patch8:         libmikmod-3.1.11-esd-driver.patch
 Patch9:		libmikmod-underquoted.patch
 Patch10:	libmikmod-CVE-2007-6720.patch
 Patch11:	libmikmod-CVE-2009-0179.patch
+Patch12:	libmikmod_lm.patch
 BuildRequires:	alsa-lib-devel
 BuildRequires:	automake1.8
 BuildRequires:	esound-devel
@@ -99,6 +100,7 @@ will use the limikmod library.
 %patch9 -p1 -b .underquoted
 %patch10 -p1 -b .CVE-2007-6720
 %patch11 -p1 -b .CVE-2009-0179
+%patch12 -p1 -b -lm
 
 libtoolize --copy --force
 autoreconf
