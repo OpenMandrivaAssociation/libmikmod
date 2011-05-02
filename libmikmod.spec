@@ -6,7 +6,7 @@
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.2.0
-Release:	%mkrel 0.%prerel.8
+Release:	%mkrel 0.%prerel.10
 License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
@@ -144,7 +144,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc INSTALL NEWS README TODO
 %{_bindir}/libmikmod-config
-%multiarch %{multiarch_bindir}/libmikmod-config
+%{multiarch_bindir}/libmikmod-config
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
