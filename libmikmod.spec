@@ -91,14 +91,6 @@ chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
 
 %multiarch_binaries %{buildroot}%{_bindir}/libmikmod-config
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
 %post -n %{develname}
 %_install_info mikmod.info
 
@@ -120,7 +112,9 @@ rm -rf %{buildroot}
 %{multiarch_bindir}/libmikmod-config
 %{_libdir}/*.so
 %{_libdir}/*.a
+%if %mdvver <= 201100
 %{_libdir}/*.la
+%endif
 %{_datadir}/aclocal/*
 %{_includedir}/*
 %{_mandir}/man1/*
