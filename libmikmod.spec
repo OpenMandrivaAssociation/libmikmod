@@ -1,7 +1,8 @@
 %define	major 3
 %define	libname %mklibname mikmod %{major}
 %define develname %mklibname mikmod -d
-%define prerel b3
+%define prerel beta3
+%defel prrl b3
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
@@ -10,7 +11,7 @@ Release:	%mkrel 0.%prerel.1
 License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
-Source0:	http://mikmod.shlomifish.org/files/%{name}-%version%prerel.tar.gz
+Source0:	http://mikmod.shlomifish.org/files/%{name}-%version%prrl.tar.gz
 BuildRequires:	alsa-lib-devel
 BuildRequires:	automake1.8
 BuildRequires:	esound-devel
@@ -76,7 +77,7 @@ will use the limikmod library.
 
 %prep
 
-%setup -q -n %{name}-%version%prerel
+%setup -q -n %{name}-%version%prrl
 
 %build
 %configure2_5x
