@@ -12,8 +12,7 @@ License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
 Source0:	http://mikmod.shlomifish.org/files/%{name}-%version%prrl.tar.gz
-BuildRequires:	alsa-lib-devel
-BuildRequires:	automake1.8
+BuildRequires:	libalsa-devel
 BuildRequires:	esound-devel
 BuildRequires:	texinfo
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
