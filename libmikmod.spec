@@ -1,29 +1,16 @@
 %define	major 3
 %define	libname %mklibname mikmod %{major}
 %define develname %mklibname mikmod -d
-%define prerel beta2
+%define prerel b3
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.2.0
-Release:	%mkrel 0.%prerel.10
+Release:	%mkrel 0.%prerel.1
 License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
-Source0:	http://mikmod.raphnet.net/files/%{name}-%version-%prerel.tar.gz
-Patch0:		libmikmod-3.1.10-dspbusy-nonblock.patch
-Patch1:		libmikmod-3.1.10-lib64.patch
-Patch2:		libmikmod-64bit.patch
-Patch3:		libmikmod-3.1.11-rawwriter-path.patch
-Patch5:		libmikmod-3.2.0-beta2-new-alsa-fix.patch
-Patch7:		libmikmod-sprintf.patch
-#gw dlopen libesd.so.0 instead of libesd.so
-Patch8:         libmikmod-3.1.11-esd-driver.patch
-# (fc) 3.2.0-0.beta2.2mdv fix aclocal warning
-Patch9:		libmikmod-underquoted.patch
-Patch10:	libmikmod-CVE-2007-6720.patch
-Patch11:	libmikmod-CVE-2009-0179.patch
-Patch12:	libmikmod_lm.patch
+Source0:	http://mikmod.shlomifish.org/files/%{name}-%version%prerel.tar.gz
 BuildRequires:	alsa-lib-devel
 BuildRequires:	automake1.8
 BuildRequires:	esound-devel
@@ -89,21 +76,7 @@ will use the limikmod library.
 
 %prep
 
-%setup -q -n %{name}-%version-%prerel
-%patch0 -p0 -b .dsp_nonblock
-%patch1 -p1 -b .lib64
-%patch2 -p1 -b .64bit-fixes
-%patch3 -p1 -b .rawwriter_path
-%patch5 -p1 -b .alsa
-%patch7 -p1 -b .sprintf
-%patch8 -p1 -b .esd
-%patch9 -p1 -b .underquoted
-%patch10 -p1 -b .CVE-2007-6720
-%patch11 -p1 -b .CVE-2009-0179
-%patch12 -p1 -b -lm
-
-libtoolize --copy --force
-autoreconf
+%setup -q -n %{name}-%version%prerel
 
 %build
 %configure2_5x
@@ -112,7 +85,7 @@ autoreconf
 %install
 rm -rf %{buildroot}
 
-%makeinstall
+%makeinstall_std
 
 chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
 
