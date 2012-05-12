@@ -1,8 +1,8 @@
 %define	major 3
 %define	libname %mklibname mikmod %{major}
 %define develname %mklibname mikmod -d
-%define prerel beta3
-%define prrl b3
+%define prerel beta4
+%define prrl b4
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
