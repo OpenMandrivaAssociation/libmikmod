@@ -7,11 +7,12 @@
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.2.0
-Release:	%mkrel 0.%prerel.2
+Release:	%mkrel 0.%{prerel}.3
 License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
 Source0:	http://mikmod.shlomifish.org/files/%{name}-%{version}%{prrl}.tar.gz
+Patch0:		libmikmod-3.2.0b4-alsa-dl.patch
 BuildRequires:	libalsa-devel
 BuildRequires:	esound-devel
 BuildRequires:	texinfo
@@ -20,7 +21,7 @@ BuildRequires:	texinfo
 Libmikmod is a portable sound library, capable of playing samples as
 well as module files, originally written by Jean-Paul Mikkers (MikMak)
 for DOS. It has subsequently been hacked by many hands and now runs on
-many Unix flavours.  
+many Unix flavours.
 
 It uses the OSS /dev/dsp driver including in all recent kernels for
 output, as well as ALSA and EsounD, and will also write wav files.
@@ -75,9 +76,10 @@ will use the limikmod library.
 
 %prep
 %setup -q -n %{name}-%{version}%{prrl}
+%patch0 -p2
 
 %build
-%configure2_5x --disable-dl
+%configure2_5x
 %make
 
 %install
