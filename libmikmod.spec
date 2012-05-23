@@ -1,5 +1,5 @@
-%define	major 3
-%define	libname %mklibname mikmod %{major}
+%define major 3
+%define libname %mklibname mikmod %{major}
 %define develname %mklibname mikmod -d
 %define prerel beta4
 %define prrl b4
@@ -7,15 +7,14 @@
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.2.0
-Release:	%mkrel 0.%prerel.1
+Release:	%mkrel 0.%prerel.2
 License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
-Source0:	http://mikmod.shlomifish.org/files/%{name}-%version%prrl.tar.gz
+Source0:	http://mikmod.shlomifish.org/files/%{name}-%{version}%{prrl}.tar.gz
 BuildRequires:	libalsa-devel
 BuildRequires:	esound-devel
 BuildRequires:	texinfo
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Libmikmod is a portable sound library, capable of playing samples as
@@ -75,11 +74,10 @@ Install the limikmod-devel package if you want to develop applications that
 will use the limikmod library.
 
 %prep
-
-%setup -q -n %{name}-%version%prrl
+%setup -q -n %{name}-%{version}%{prrl}
 
 %build
-%configure2_5x
+%configure2_5x --disable-dl
 %make
 
 %install
@@ -101,18 +99,16 @@ chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
 rm -rf %{buildroot}
 
 %files -n %{libname}
-%defattr(-,root,root)
 %doc AUTHORS COPYING.LESSER COPYING.LIB
 %{_libdir}/libmikmod.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc INSTALL NEWS README TODO
 %{_bindir}/libmikmod-config
 %{multiarch_bindir}/libmikmod-config
 %{_libdir}/*.so
 %{_libdir}/*.a
-%if %mdvver <= 201100
+%if %{mdvver} <= 201100
 %{_libdir}/*.la
 %endif
 %{_datadir}/aclocal/*
