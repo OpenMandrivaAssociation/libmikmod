@@ -84,11 +84,11 @@ will use the limikmod library.
 %multiarch_binaries %{buildroot}%{_bindir}/libmikmod-config
 
 %files -n %{libname}
-%doc AUTHORS COPYING.LESSER COPYING.LIB
+%doc AUTHORS
 %{_libdir}/libmikmod.so.%{major}*
 
 %files -n %{devname}
-%doc INSTALL NEWS README TODO
+%doc NEWS README TODO
 %{_bindir}/libmikmod-config
 %{multiarch_bindir}/libmikmod-config
 %{_libdir}/*.so
