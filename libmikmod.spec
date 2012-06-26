@@ -80,6 +80,8 @@ will use the limikmod library.
 %install
 %makeinstall_std
 
+chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
+
 %multiarch_binaries %{buildroot}%{_bindir}/libmikmod-config
 
 %files -n %{libname}
