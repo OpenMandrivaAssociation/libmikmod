@@ -1,18 +1,15 @@
 %define major 3
 %define libname %mklibname mikmod %{major}
 %define develname %mklibname mikmod -d
-%define prerel beta4
-%define prrl b4
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.2.0
-Release:	%mkrel 0.%{prerel}.3
+Release:	1
 License:	LGPLv2+
 Group:		Sound
 URL:		http://mikmod.raphnet.net/
-Source0:	http://mikmod.shlomifish.org/files/%{name}-%{version}%{prrl}.tar.gz
-Patch0:		libmikmod-3.2.0b4-alsa-dl.patch
+Source0:	http://mikmod.shlomifish.org/files/%{name}-%{version}.tar.gz
 BuildRequires:	libalsa-devel
 BuildRequires:	esound-devel
 BuildRequires:	texinfo
@@ -75,8 +72,7 @@ Install the limikmod-devel package if you want to develop applications that
 will use the limikmod library.
 
 %prep
-%setup -q -n %{name}-%{version}%{prrl}
-%patch0 -p2
+%setup -q
 
 %build
 %configure2_5x
