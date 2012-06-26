@@ -1,6 +1,6 @@
-%define major 3
-%define libname %mklibname mikmod %{major}
-%define develname %mklibname mikmod -d
+%define	major	3
+%define	libname	%mklibname mikmod %{major}
+%define	devname	%mklibname mikmod -d
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
@@ -47,14 +47,14 @@ MED, MTM, OKT, S3M, STM, STX, ULT, UNI and XM.
 Full source included, use of this library for music/sound effects in
 your own programs is encouraged !
 
-%package -n	%{develname}
+%package -n	%{devname}
 Summary:	Development related files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
 Obsoletes:	%{mklibname mikmod 2 -d}
 
-%description -n	%{develname}
+%description -n	%{devname}
 Libmikmod is a portable sound library, capable of playing samples as
 well as module files, originally written by Jean-Paul Mikkers (MikMak)
 for DOS. It has subsequently been hacked by many hands and now runs on
@@ -79,22 +79,15 @@ will use the limikmod library.
 %make
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
-chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
-
 %multiarch_binaries %{buildroot}%{_bindir}/libmikmod-config
-
-%clean
-rm -rf %{buildroot}
 
 %files -n %{libname}
 %doc AUTHORS COPYING.LESSER COPYING.LIB
 %{_libdir}/libmikmod.so.%{major}*
 
-%files -n %{develname}
+%files -n %{devname}
 %doc INSTALL NEWS README TODO
 %{_bindir}/libmikmod-config
 %{multiarch_bindir}/libmikmod-config
