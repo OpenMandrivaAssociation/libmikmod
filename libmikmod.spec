@@ -31,7 +31,6 @@ your own programs is encouraged !
 %package -n	%{libname}
 Summary:	Sound library supporting multiple module formats and digital sound files
 Group:		Sound
-Provides:	%{name} = %{version}-%{release}
 
 %description -n %{libname}
 Libmikmod is a portable sound library, capable of playing samples as
