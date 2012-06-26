@@ -87,12 +87,6 @@ chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
 
 %multiarch_binaries %{buildroot}%{_bindir}/libmikmod-config
 
-%post -n %{develname}
-%_install_info mikmod.info
-
-%preun -n %{develname}
-%_remove_install_info mikmod.info
-
 %clean
 rm -rf %{buildroot}
 
