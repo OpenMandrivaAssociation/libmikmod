@@ -4,8 +4,8 @@
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
-Version:	3.2.0
-Release:	4
+Version:	3.3.2
+Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		http://mikmod.raphnet.net/
@@ -84,4 +84,5 @@ chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
 %{_includedir}/*
 %{_mandir}/man1/*
 %{_infodir}/*
+
 
