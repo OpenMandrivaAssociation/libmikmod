@@ -74,6 +74,7 @@ chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
 %files -n %{libname}
 %doc AUTHORS
 %{_libdir}/libmikmod.so.%{major}*
+%{_libdir}/pkgconfig/libmikmod.pc
 
 %files -n %{devname}
 %doc NEWS README TODO
