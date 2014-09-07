@@ -4,12 +4,12 @@
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
-Version:	3.3.6
-Release:	3
+Version:	3.3.7
+Release:	1
 License:	LGPLv2+
 Group:		Sound
 Url:		http://mikmod.raphnet.net/
-Source0:	http://sourceforge.net/projects/mikmod/files/libmikmod/3.3.6/%{name}-%{version}.tar.gz
+Source0:	http://sourceforge.net/projects/mikmod/files/libmikmod/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(alsa)
 
 %description
@@ -58,7 +58,7 @@ will use the limikmod library.
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--disable-altivec \
 	--enable-alsa
@@ -85,7 +85,3 @@ chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
 %{_includedir}/*
 %{_mandir}/man1/*
 %{_infodir}/*
-
-
-
-

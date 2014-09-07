@@ -1,7 +1,2 @@
-removed_sources:
-  libmikmod-3.2.0.tar.gz: 6d30f59019872699bdcc9bcf6893eea9d6b12c13
-  libmikmod-3.3.2.tar.gz: e3496e6daef4c4361b7c24accc7159ad75dfa600
-  libmikmod-3.3.4.tar.gz: 49532c06ce1ed0aa727964c25e3bfc6e89266cd7
-  libmikmod-3.3.5.tar.gz: b70cfdb3440f18a52bc8cd44fed2f4512715741f
 sources:
-  libmikmod-3.3.6.tar.gz: c0d5c7df1f26b4244ba95ed261f580be2e52f789
+  libmikmod-3.3.7.tar.gz: f936d92ed9752d9f47a3340bdafc78159a270ca9
