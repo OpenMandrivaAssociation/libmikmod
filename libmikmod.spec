@@ -5,7 +5,7 @@
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.3.7
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		Sound
 Url:		http://mikmod.raphnet.net/
