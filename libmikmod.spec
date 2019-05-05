@@ -1,11 +1,11 @@
-%define	major	3
-%define	libname	%mklibname mikmod %{major}
-%define	devname	%mklibname mikmod -d
+%define major 3
+%define libname %mklibname mikmod %{major}
+%define devname %mklibname mikmod -d
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
 Version:	3.3.7
-Release:	4
+Release:	5
 License:	LGPLv2+
 Group:		Sound
 Url:		http://mikmod.raphnet.net/
@@ -55,21 +55,20 @@ Install the limikmod-devel package if you want to develop applications that
 will use the limikmod library.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure \
 	--disable-static \
 	--disable-altivec \
 	--enable-alsa
-%make
+
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
-
-%multiarch_binaries %{buildroot}%{_bindir}/libmikmod-config
 
 %files -n %{libname}
 %doc AUTHORS
@@ -79,7 +78,6 @@ chmod 755 %{buildroot}%{_libdir}/lib*.so.%{major}*
 %doc NEWS README TODO
 %{_bindir}/libmikmod-config
 %{_libdir}/pkgconfig/libmikmod.pc
-%{multiarch_bindir}/libmikmod-config
 %{_libdir}/*.so
 %{_datadir}/aclocal/*
 %{_includedir}/*
