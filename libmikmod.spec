@@ -8,7 +8,7 @@ Version:	3.3.11.1
 Release:	6
 License:	LGPLv2+
 Group:		Sound
-Url:		http://mikmod.raphnet.net/
+Url:		https://mikmod.raphnet.net/
 Source0:	http://sourceforge.net/projects/mikmod/files/libmikmod/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(alsa)
 
