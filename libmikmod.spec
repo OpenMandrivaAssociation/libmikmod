@@ -4,7 +4,7 @@
 
 Summary:	Sound library supporting multiple module formats and digital sound files
 Name:		libmikmod
-Version:	3.3.15
+Version:	3.3.16
 Release:	1
 License:	LGPLv2+
 Group:		Sound
